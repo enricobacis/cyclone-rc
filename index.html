@@ -4,42 +4,63 @@
   <head>
     <title>Cyclone Remote Compiler</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
     <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <!-- JQuery -->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Ajax Form -->
+    <script src="js/ajax.form.js" type="text/javascript"></script>
+    
   </head>
     
   <body>
     
-    <div id="stylized" class="myform">
+    <div id="wrapper"> 
+
+      <div id="content_wrapper"> 
+
+        <div id="stylized" class="myform">
+        
+          <form id="compilerform" action="compiler.php" enctype="multipart/form-data">
+
+            <h1>Cyclone Remote Compiler</h1>
+            
+            <p>Compile Cyclone files online without having to install anything.</p>
+            <div class="separator"></div>
+
+            <label for="file">Source file
+              <span class="small">Extension <i>.cyc</i></span>
+            </label>
+
+            <input class="input" type="file" name="file" id="file">
+            
+            <input class="button" type="submit" id="submit" name="submit" value="compile">
+            
+          </form>
+          
+        </div> <!--stylized-->
+        
+        <div id="output" style="display:none; overflow:hidden;"></div> 
+        
+      </div> <!-- content_wrapper -->
     
-      <form id="form" name="form" action="compiler.php" method="post" enctype="multipart/form-data">
+    </div> <!-- wrapper -->
 
-        <h1>Cyclone Remote Compiler</h1>
-        
-        <p>Compile Cyclone files online without having to install anything.</p>
-        <div class="separator"></div>
-
-        <label for="file">Source file
-          <span class="small">Extension <i>.cyc</i></span>
-        </label>
-
-        <input class="input" type="file" name="file" id="file">
-        
-        <input class="button" type="submit" name="submit" value="compile">
-        
-      </form>
-      
-    </div>
-
-    <div id="footer">
+    <div id="footer_wrapper">
+    
       <p>created by
-        <a href="mailto:enrico.bacis@gmail.com?Subject=Cyclone%20Remote%20Compiler">
-          enrico bacis (2013 
-          <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a>)
-        </a>
+      
+        <a href="mailto:enrico.bacis@gmail.com?Subject=Cyclone%20Remote%20Compiler">enrico bacis</a>
+        (2013 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a>)
+        
       </p>
-    </div>
+      
+    </div> <!-- footer -->
     
   </body>
 

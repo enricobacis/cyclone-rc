@@ -1,46 +1,54 @@
 body {
-	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
-	font-size:12px;
+    font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    font-size:12px;
+    overflow-y: scroll; /* prevent scrollbar shifting problem */
+    margin: 0px;
+    padding: 0px;
 }
 
-p, h1, form {
-	border:0;
-	margin:0;
-	padding:0;
+html, body {
+    height: 100%;
 }
 
 pre {
-	white-space: pre-wrap; /* css-3 */
-	white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
-	white-space: -pre-wrap; /* Opera 4-6 */
-	white-space: -o-pre-wrap; /* Opera 7 */
-	word-wrap: break-word; /* Internet Explorer 5.5+ */
-	display: block;
-	background: #ebf4fb;
-	padding: 0.5em 1em;
-	border: 1px solid #b7ddf2;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    display: block;
+    background: #ebf4fb;
+    padding: 0.5em 1em;
+    border: 1px solid #b7ddf2;
+    margin: 5px 25px;
 }
 
 .myform {
-	margin:5% auto 0 auto;
-	width:400px;
-	padding:14px;
+    margin:0 auto 0 auto;
+    width:400px;
+    padding:14px;
 }
 
 #stylized {
-	border:solid 2px #b7ddf2;
-	background:#ebf4fb;
+    border:solid 2px #b7ddf2;
+    background:#ebf4fb;
 }
 
 #stylized h1 {
-	font-size:14px;
-	font-weight:bold;
-	margin-bottom:8px;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:8px;
 }
 
 #stylized p {
     font-size:11px;
     color:#666666;
+}
+
+#stylized p, h1, form {
+    border:0;
+    margin:0;
+    padding:0;
 }
 
 #stylized .separator {
@@ -50,63 +58,104 @@ pre {
 }
 
 #stylized label {
-	display:block;
-	font-weight:bold;
-	text-align:right;
-	width:140px;
-	float:left;
+    display:block;
+    font-weight:bold;
+    text-align:right;
+    width:140px;
+    float:left;
 }
 
 #stylized .small {
-	color:#666666;
-	display:block;
-	font-size:11px;
-	font-weight:normal;
-	text-align:right;
-	width:140px;
+    color:#666666;
+    display:block;
+    font-size:11px;
+    font-weight:normal;
+    text-align:right;
+    width:140px;
 }
 
 #stylized .input {
-	float:left;
-	font-size:12px;
-	padding:4px 2px;
-	border:solid 1px #aacfe4;
-	width:200px;
-	margin:2px 0 20px 10px;
+    float:left;
+    font-size:12px;
+    padding:4px 2px;
+    border:solid 1px #aacfe4;
+    width:200px;
+    margin:2px 0 20px 10px;
 }
 
 #stylized .button {
-	moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border:0;
-	margin:0;
-	padding:0;
-	clear:both;
-	margin-left:150px;
-	width:125px;
-	height:31px;
-	background: #617798;
-	text-align:center;
-	line-height:31px;
-	color:#FFFFFF;
-	font-size:14px;
-	font-weight:bold;
-	cursor:pointer;
+    moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border:0;
+    margin:0;
+    padding:0;
+    clear:both;
+    margin-left:150px;
+    width:125px;
+    height:31px;
+    background: #617798;
+    text-align:center;
+    line-height:31px;
+    color:#FFFFFF;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 #stylized .button:hover {
-	background: #44526A;
+    background: #44526A;
 }
 
-#footer p {
-    position:fixed;
-    bottom:0;
-    right:0;
-    padding:14px;
+p.error {
+    padding:2px 4px;
+    margin: 5px 25px;
+    border:solid 1px #FBD3C6;
+    background:#FDE4E1;
+    color:#CB4721;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+}
+
+p.file_details {
+	margin-left:40px;
+}
+
+h2, h3, h4 {
+	margin-left:25px;
+}
+
+#output {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+div#wrapper {
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0px 0px -40px 0px;
+}
+
+div#footer_wrapper {
+    width: 100%;
+    height: 40px;
+}
+
+div#content_wrapper {
+    width: 100%;
+    padding: 3% 0px 40px 0px;
+}
+
+#footer_wrapper p {
+    margin:0;
+    padding:10px;
+    float:right;
     color:#AAAAAA;
 }
 
-#footer a {
+#footer_wrapper a {
     color:#AAAAAA;
     text-decoration:none;
 }
