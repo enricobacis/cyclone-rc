@@ -30,7 +30,7 @@ $out = $file . ".out";
 <?php
 
 // Check for file size and extension
-if (($_FILES["file"]["size"] < 100000) && $extension == "cyc")
+if (($_FILES["file"]["size"] < 100 * 1024) && $extension == "cyc")
 {
   // Check for errors in file
   if ($_FILES["file"]["error"] > 0)
@@ -43,7 +43,7 @@ if (($_FILES["file"]["size"] < 100000) && $extension == "cyc")
     move_uploaded_file($_FILES["file"]["tmp_name"], $file);
 
     // Compile time
-    echo "<br><h1>Compiling</h1>";
+    echo "<br><h1>Compile output</h1>";
 
     ob_start();
     system("rm -rf " . $out);
@@ -56,7 +56,7 @@ if (($_FILES["file"]["size"] < 100000) && $extension == "cyc")
     {
       // Execute time
       echo "OK</pre>";
-      echo "<h1>Executing</h1>";
+      echo "<h1>Execute output</h1>";
       ob_start();
       system("chmod +x " . $out);
       system($out . " 2>&1");
@@ -65,26 +65,28 @@ if (($_FILES["file"]["size"] < 100000) && $extension == "cyc")
     }
 
     echo "</pre>";
+    echo "<br><p>Press F5 to recompile</p>";
 
     // Show file info
-    echo "<br><br><h2>Details</h2>";
+    echo "<br><br>";
+    echo "<h2 id=\"expanderHead\" style=\"cursor:pointer;\">";
+    echo "File details (click to <span id=\"expanderSign\">show</span>)</h2>";
+
+    echo "<div id=\"expanderContent\" style=\"display:none; overflow:hidden;\" >";
     echo "Name: " . $_FILES["file"]["name"] . "<br>";
     echo "Type: " . $_FILES["file"]["type"] . "<br>";
     echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 
-    echo "<br><h4 id=\"expanderHead\" style=\"cursor:pointer;\">";
-    echo "Source file <span id=\"expanderSign\">(SHOW)</span></h4>";
-    echo "<div id=\"expanderContent\" style=\"display:none\">";
-
     $text = file_get_contents($file);
-
+    echo "<h4>Source file </h4>";
     echo "<pre><code>" . htmlspecialchars($text, ENT_QUOTES) . "</code></pre>";
+
     echo "</div>";
   }
 }
 else
 {
-  echo "ERROR: File must be .cyc";
+  echo "<p>ERROR: File must be smaller than 100 kB and have extension .cyc</p>";
 }
 ?>
 
