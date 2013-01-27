@@ -1,0 +1,35 @@
+<html>
+
+	<head>
+		<title>Cyclone Remote Compiler</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+		
+	<body>
+		
+		<div id="stylized" class="myform">
+		
+			<form id="form" name="form" action="compiler.php" method="post" enctype="multipart/form-data">
+
+				<h1>Cyclone Remote Compiler</h1>
+				
+				<p>
+					Compile Cyclone (<i>.cyc</i>) files online without have to install anything on your machine.
+					You can also press refresh to compile again.
+				</p>
+
+				<label for="file">Source file
+					<span class="small">extension <i>.cyc</i></span>
+				</label>
+
+				<input class="input" type="file" name="file" id="file">
+				
+				<input class="button" type="submit" name="submit" value="compile">
+				
+			</form>
+			
+		</div>
+
+	</body>
+
+</html>
