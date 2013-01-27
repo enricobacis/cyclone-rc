@@ -43,7 +43,7 @@ if (($_FILES["file"]["size"] < 100 * 1024) && $extension == "cyc")
     move_uploaded_file($_FILES["file"]["tmp_name"], $file);
 
     // Compile time
-    echo "<br><h1>Compile output</h1>";
+    echo "<br><h2>Compile output</h2>";
 
     ob_start();
     system("rm -rf " . $out);
@@ -56,7 +56,7 @@ if (($_FILES["file"]["size"] < 100 * 1024) && $extension == "cyc")
     {
       // Execute time
       echo "OK</pre>";
-      echo "<h1>Execute output</h1>";
+      echo "<h2>Execute output</h2>";
       ob_start();
       system("chmod +x " . $out);
       system($out . " 2>&1");
@@ -89,6 +89,15 @@ else
   echo "<p>ERROR: File must be smaller than 100 kB and have extension .cyc</p>";
 }
 ?>
+
+<div id="footer">
+  <p>created by
+    <a href="mailto:enrico.bacis@gmail.com?Subject=Cyclone%20Remote%20Compiler">
+      enrico bacis (2013 
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons</a>)
+    </a>
+  </p>
+</div>
 
 </body>
 </html>
