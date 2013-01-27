@@ -21,13 +21,8 @@ pre {
 	border: 1px solid #b7ddf2;
 }
 
-code {
-	background: #d3d3d3;
-	border: 1px solid #a9a9a9;
-}
-
 .myform {
-	margin:100 auto;
+	margin:5% auto 0 auto;
 	width:400px;
 	padding:14px;
 }
@@ -44,11 +39,14 @@ code {
 }
 
 #stylized p {
-	font-size:11px;
-	color:#666666;
-	margin-bottom:20px;
-	border-bottom:solid 1px #b7ddf2;
-	padding-bottom:10px;
+    font-size:11px;
+    color:#666666;
+}
+
+#stylized .separator {
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:solid 1px #b7ddf2;
 }
 
 #stylized label {
@@ -96,6 +94,19 @@ code {
 	cursor:pointer;
 }
 
-#stylized .button :hover {
-	background: #586A89;
+#stylized .button:hover {
+	background: #44526A;
+}
+
+#footer p {
+    position:fixed;
+    bottom:0;
+    right:0;
+    padding:14px;
+    color:#AAAAAA;
+}
+
+#footer a {
+    color:#AAAAAA;
+    text-decoration:none;
 }
