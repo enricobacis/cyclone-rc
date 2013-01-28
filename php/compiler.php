@@ -1,5 +1,7 @@
 <?php
 
+require 'exectimeout.php';
+
 // Setting variables
 $extension = end(explode(".", $_FILES["file"]["name"]));
 $filename = $_FILES["file"]["name"];
@@ -35,10 +37,10 @@ else
   // Compile time
   echo "<br><h2>Compile output</h2>";
 
-  ob_start();
+  //ob_start();
   system("rm -rf " . $out);
-  system("cyclone -o " . $out . " " . $file . " 2>&1");
-  $compile_out = ob_get_clean();
+  $compile_out = ExecWaitTimeout("cyclone -o " . $out . " " . $file . " 2>&1");
+  //ob_get_clean();
   echo "<pre>" . htmlspecialchars($compile_out, ENT_QUOTES);
 
   // Check if compilation was OK
@@ -47,10 +49,10 @@ else
     // Execute time
     echo "OK</pre>";
     echo "<h2>Execute output</h2>";
-    ob_start();
+    //ob_start();
     system("chmod +x " . $out);
-    system($out . " 2>&1");
-    $execute_out = ob_get_clean();
+    $execute_out = ExecWaitTimeout($out . " 2>&1");
+    //ob_get_clean();
     echo "<pre>" . htmlspecialchars($execute_out, ENT_QUOTES);
   }
 
