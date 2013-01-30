@@ -41,7 +41,7 @@ else
   system("rm -rf " . $out);
   $compile_out = ExecWaitTimeout("cyclone -o " . $out . " " . $file . " 2>&1");
   //ob_get_clean();
-  echo "<pre>" . htmlspecialchars($compile_out, ENT_QUOTES);
+  echo "<pre class=\"console\">" . htmlspecialchars($compile_out, ENT_QUOTES);
 
   // Check if compilation was OK
   if (file_exists($out))
@@ -53,7 +53,7 @@ else
     system("chmod +x " . $out);
     $execute_out = ExecWaitTimeout($out . " 2>&1");
     //ob_get_clean();
-    echo "<pre>" . htmlspecialchars($execute_out, ENT_QUOTES);
+    echo "<pre class=\"console\">" . htmlspecialchars($execute_out, ENT_QUOTES);
   }
 
   echo "</pre>";
@@ -70,14 +70,9 @@ else
   echo "</p>";
 
   // show source
-  echo "<pre><code>";
-  $text = explode("\n", file_get_contents($file));
-  foreach ($text as $line_num => $line)
-  {
-    $ln = $line_num + 1;
-    echo "#" . str_pad("{$ln}", 4) . "  " . HTMLSPECIALCHARS($line) . "\n";
-  }
-
+  $text = file_get_contents($file);
+  echo "<pre class=\"prettyprint linenums\"><code class=\"language-cs\">";
+  echo HTMLSPECIALCHARS($text);
   echo "</code></pre>";
 
   echo "</div>";

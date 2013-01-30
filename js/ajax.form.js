@@ -4,6 +4,7 @@ $(document).ready(function(){
 
   function showResult(output) {
     $("#output").html(output);
+    prettyPrint();
     $("#output").slideDown(400, function() {
       $("#compiling").hide();
       $("#submit").show();
@@ -72,6 +73,5 @@ $(document).ready(function(){
         }
     });
   });
-
 
 });
